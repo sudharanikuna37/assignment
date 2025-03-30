@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALCAMI - Himalayan Shilajit & Elements</title>
+    <style>
+        /* Color Variables from Figma */
+        :root {
+            --dark-brown: #2A2A2A;
+            --medium-brown: #5A5A5A;
+            --light-brown: #D4A76A;
+            --cream: #F8F8F8;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray-border: #E0E0E0;
+            --gold: #D4A76A;
+            --dark-gold: #B38C4A;
+            --testimonial-bg: #F5F5F5;
+        }
+
+        /* Base Styles & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: var(--dark-brown);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--medium-brown);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--dark-brown);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--medium-brown);
+        }
+        
+        .btn-gold {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+        
+        .btn-gold:hover {
+            background: var(--dark-gold);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-brown);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--dark-brown);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-icons button {
+            margin-left: 20px;
+        }
+        
+        .search-bar {
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            width: 300px;
+            background: var(--white);
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+            border: 1px solid var(--gray-border);
+            border-radius: 4px;
+        }
+        
+        .search-bar.active {
+            display: block;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--gray-border);
+            border-radius: 4px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--dark-brown);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('https://images.unsplash.com/photo-1519735777090-ec97162dc266?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark-brown);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--medium-brown);
+        }
+
+        /* Product Showcase Section */
+        .product-showcase {
+            background: var(--cream);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid var(--gray-border);
+        }
+        
+        .product-card h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        /* Morning Ritual Section */
+        .ritual-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .ritual-step {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-border);
+        }
+        
+        .ritual-step h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px auto;
+            max-width: 800px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item h2 {
+            font-size: 48px;
+            color: var(--gold);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            border: 1px solid var(--gray-border);
+        }
+        
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--gray-border);
+        }
+        
+        .comparison-table th {
+            background: var(--cream);
+            font-weight: 700;
+            color: var(--dark-brown);
+        }
+        
+        .comparison-table .feature-name {
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table .highlight {
+            background: rgba(212, 167, 106, 0.1);
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        /* Testimonials */
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .testimonial-card {
+            min-width: 300px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            scroll-snap-align: start;
+            border: 1px solid var(--gray-border);
+        }
+        
+        .stars {
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 15px;
+            color: var(--dark-brown);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 1px solid var(--gray-border);
+            margin-bottom: 15px;
+        }
+        
+        .faq-question {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            color: var(--medium-brown);
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--dark-brown);
+            color: var(--white);
+            padding: 60px 0;
+        }
+        
+        .newsletter h2 {
+            color: var(--white);
+        }
+        
+        .newsletter p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: var(--gold);
+            color: var(--dark-brown);
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #CCCCCC;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 4px;
+            }
+            
+            .newsletter-form button {
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-padding {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ALCAMI</a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Elements</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            
+            <div class="header-icons">
+                <button id="searchToggle">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 19L13 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 1L3 4V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19H15C15.5304 19 16.0391 18.7893 16.4142 18.4142C16.7893 18.0391 17 17.5304 17 17V4L14 1H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 4H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 8C13 8.79565 12.6839 9.55871 12.1213 10.1213C11.5587 10.6839 10.7956 11 10 11C9.20435 11 8.44129 10.6839 7.87868 10.1213C7.31607 9.55871 7 8.79565 7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <div class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search products...">
+                <button id="searchClose">×</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section-padding">
+        <div class="container hero-content">
+            <h1>Your morning ritual, made to awaken your mind.</h1>
+            <p>Transform your mornings with a simple, potent, and powerful ritual that fuels your day.</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Himalayan Shilajit Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center">Himalayan Shilajit</h2>
+            <h3 class="text-center" style="color: var(--gold); margin-bottom: 40px;">NATURE'S ULTIMATE ADAPTOGEN</h3>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <h4>Boosts Energy and Stamina</h4>
+                    <p>Shilajit enhances vitality, supporting increased energy levels, physical endurance, and overall stamina.</p>
+                </div>
+                <div class="product-card">
+                    <h4>Enhances Bone and Men's Health</h4>
+                    <p>Shilajit provides essential minerals for strong bone and has traditional skin at supporting men's reproductive health and testosterone levels.</p>
+                </div>
+                <div class="product-card">
+                    <h4>Promotes Cognitive Function & Stress Relief</h4>
+                    <p>Shilajit may improve mental clarity, focus, and memory while helping the body adjust to stress, enhancing overall resilience.</p>
+                </div>
+                <div class="product-card">
+                    <h4>Supports Immune Health & Anti-Aging</h4>
+                    <p>Rich in antioxidants, Shilajit aids in reducing oxidative stress, boosting the immune system, and promoting skin health for a youthful appearance.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <h3>ITX Shilajit</h3>
+                <h4 style="color: var(--gold); margin: 15px 0;">SUBSCRIPTION</h4>
+                <p style="margin-bottom: 20px;">Subscribe & save 20% + free frother and bottle and spoon</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 600px; margin: 0 auto 30px;">
+                    <div>LASER FOCUS</div>
+                    <div>SUSTAINED ENERGY</div>
+                    <div>CLEAR MIND</div>
+                    <div>IMPROVED MOOD</div>
+                    <div>NO CAFFEINE</div>
+                    <div>CALM BALANCE</div>
+                </div>
+                
+                <a href="#" class="btn btn-gold">Subscribe Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Morning Ritual Section -->
+    <section class="section-padding" style="background: var(--cream);">
+        <div class="container">
+            <h2 class="text-center">Your Morning Ritual</h2>
+            
+            <div class="ritual-steps">
+                <div class="ritual-step">
+                    <h3>1. Prep your favorite drink</h3>
+                    <p>Start your morning with your favorite beverage, whether it's a nutrient-packed smoothie or a warm cup of tea.</p>
+                </div>
+                <div class="ritual-step">
+                    <h3>2. Take a scoop</h3>
+                    <p>Simply add one potent scoop packed with 40 the potency to boost energy, enhance clarity, and support wellness all day.</p>
+                </div>
+                <div class="ritual-step">
+                    <h3>3. Customize and mix</h3>
+                    <p>Personalize your morning drink. Stir well for a perfectly blended, nutrient-rich beverage that awakens your mind and prepares you for the day.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <h3>See how people are using Alcami</h3>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="84">0</h2>
+                        <p>Reported increased energy throughout their day</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="78">0</h2>
+                        <p>Reported feeling more focused</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="89">0</h2>
+                        <p>Reported a sense of calmness & sleep/mood</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="90">0</h2>
+                        <p>Reported feeling an overall increased wellness in their gut-skin, fear, and physical health</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Alcami Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center">Why Alcami is the #1 Choice for your Productivity and Performance</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>BENEFITS</th>
+                        <th>ALCAMI</th>
+                        <th>Mutinums</th>
+                        <th>RIVER</th>
+                        <th>EVERYDAY DOOR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Potency Concentration</td>
+                        <td class="highlight">10x</td>
+                        <td>1x</td>
+                        <td>1x</td>
+                        <td>10x</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Extracts Concentrates</td>
+                        <td class="highlight">✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Effects You Can Feel</td>
+                        <td class="highlight">✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name"># of Beneficial Ingredients</td>
+                        <td class="highlight">9</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Incredible Taste</td>
+                        <td class="highlight">✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">No Caffeine</td>
+                        <td class="highlight">✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">No Starch or Mycoliated Oats</td>
+                        <td class="highlight">✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">100% Fruiting Body Mushroom</td>
+                        <td class="highlight">✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="#" class="btn">Try It Risk-Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding" style="background: var(--cream);">
+        <div class="container">
+            <h2 class="text-center">What our customers are saying</h2>
+            <p class="text-center" style="margin-bottom: 40px;">Real people, real reviews.</p>
+            
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+                    <p class="testimonial-author">[Name Surname]</p>
+                    <p>[Position: Company name]</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+                    <p class="testimonial-author">[Name Surname]</p>
+                    <p>[Position: Company name]</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+                    <p class="testimonial-author">[Name Surname]</p>
+                    <p>[Position: Company name]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2>F.A.Qs</h2>
+            <p style="margin-bottom: 30px;">If you have any question that isn't answered in our FAQs, we'd love to hear from you!</p>
+            <a href="#" class="btn" style="margin-bottom: 40px;">Get in touch</a>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>If I subscribe can I cancel anytime?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can cancel your subscription at any time with no cancellation fees.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I take this at night?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, our formula is designed to be taken at any time of day, though most customers prefer taking it in the morning.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Where are your ingredients sourced from?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We source our ingredients from the purest regions around the world, including the Himalayas for our Shilajit.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will this get me high?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No, our products contain no psychoactive compounds and will not produce any intoxicating effects.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Are you using fruiting bodies for your mushrooms?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we use 100% fruiting bodies in all our mushroom-based products for maximum potency and efficacy.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 30px;">
+                <a href="#" style="color: var(--gold); font-weight: 600;">See All FAQs →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container text-center">
+            <h2>Sign up and receive up to 15% OFF on your first order</h2>
+            <p style="margin: 20px 0 30px;">Get weekly recipes, insights, and freebies when you sign up to our newsletter.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+            
+            <p style="margin-top: 20px; font-size: 12px; color: #999;">By subscribing to a report found in our Financialsites web provider network response section from our company.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>ALCAMI</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Elements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">X</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Join our newsletter</h3>
+                    <form style="display: flex;">
+                        <input type="email" placeholder="Enter your email" style="flex: 1; padding: 8px;">
+                        <button type="submit" style="padding: 8px 15px; background: var(--gold); color: var(--dark-brown); border: none;">→</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© ALCAMI ELEMENTS, ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Search Toggle
+            const searchToggle = document.getElementById('searchToggle');
+            const searchBar = document.getElementById('searchBar');
+            const searchClose = document.getElementById('searchClose');
+            
+            searchToggle.addEventListener('click', function() {
+                searchBar.classList.toggle('active');
+            });
+            
+            searchClose.addEventListener('click', function() {
+                searchBar.classList.remove('active');
+            });
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const toggle = this.querySelector('.faq-toggle');
+                    const isOpen = answer.classList.contains('active');
+                    
+                    // Close all answers first
+                    document.querySelectorAll('.faq-answer').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Reset all toggles
+                    document.querySelectorAll('.faq-toggle').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Open clicked answer if it wasn't open
+                    if (!isOpen) {
+                        answer.classList.add('active');
+                        toggle.classList.add('active');
+                    }
+                });
+            });
+            
+            // Animated Counters
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            function animateCounters() {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(animateCounters, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                });
+            }
+            
+            // Start animation when section is in view
+            const statsSection = document.querySelector('.ritual-steps');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(statsSection);
+        });
+    </script>
+</body>
+</html>
